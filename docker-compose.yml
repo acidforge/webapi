@@ -1,0 +1,16 @@
+neo4j:
+  image: neo4j:3.4
+  ports:
+   - "7474:7474"
+   - "7687:7687"
+  expose:
+   - "7474"
+   - "7687"
+  volumes:
+   - ./db/data:/data
+   - ./plugins:/plugins
+   - ./import:/import
+  environment:
+        - NEO4J_HEAP_MEMORY=2048
+        - NEO4J_CACHE_MEMORY=1G
+        - NEO4J_AUTH=neo4j/@abc123
